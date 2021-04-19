@@ -1,4 +1,4 @@
-type Query {
+ type Query {
         movie(code: Int, country: String): Movie!
         tv(code: Int, country: String): TV!
         season(code: Int, seasonNumber: Int): Season!
@@ -15,8 +15,8 @@ type Query {
         releaseDate: String
         runtime: Int
         status: String
-        backdrops: String
-        posters: String
+        backdrop: String
+        poster: String
         providers: [String]
         cast: [[String]]
         directors: [[String]]
@@ -36,8 +36,8 @@ type Query {
         firstAirDate: String
         lastAirDate: String
         status: String
-        backdrops: String
-        posters: String
+        backdrop: String
+        poster: String
         providers: [String]
         creators: [[String]]
         cast: [[String]]
@@ -55,7 +55,7 @@ type Query {
         seasonNumber: Int
         name: String
         overview: String
-        posters: String
+        poster: String
         watchStatus: String
         rating: Float
         favorite: Boolean
@@ -69,7 +69,7 @@ type Query {
         overview: String
         airDate: String
         voteAverage: Float 
-        stills: String
+        still: String
         watchStatus: String
         rating: Float
         favorite: Boolean
