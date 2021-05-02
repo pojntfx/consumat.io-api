@@ -4,6 +4,13 @@ type Query {
     season(code: Int, seasonNumber: Int): Season!
     episode(code: Int, seasonNumber: Int, episodeNumber: Int): Episode!
     search(keyword: String): [Result!]
+<<<<<<< HEAD
+=======
+}
+    
+type Search {
+    results: [Result]
+>>>>>>> 3ebc27f2b2e3a7b82ff491b004c2567ff4419ed9
 }
     
 type Result{
