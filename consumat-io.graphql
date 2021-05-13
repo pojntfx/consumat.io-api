@@ -19,20 +19,6 @@ type RatingPayload {
 type WatchStatusPayload {
     status: Boolean!
 }
-    
-type Search {
-    results: [Result]
-}
-    
-type Result{
-    code: Int
-    mediaType: String
-    title: String
-    overview: String
-    releaseDate: String
-    posterPath: String
-    watchStatus: String
-}
 
 union Media = Movie | TV 
 
