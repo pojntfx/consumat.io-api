@@ -5,6 +5,19 @@ type Query {
     episode(code: Int, seasonNumber: Int, episodeNumber: Int): Episode!
     search(keyword: String): [Result!]
 }
+
+type Mutation {
+    rating(code: Int!, media: String!, rating: Float!) : RatingPayload!
+    watchStatus(code: Int!, media: String!, watchStatus: String!) : WatchStatusPayload!
+}
+
+type RatingPayload {
+    status: Boolean!
+}
+
+type WatchStatusPayload {
+    status: Boolean!
+}
     
 type Search {
     results: [Result]
