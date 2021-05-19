@@ -3,14 +3,18 @@ type Query {
     tv(code: Int, country: String): TV!
     season(code: Int, seasonNumber: Int): Season!
     episode(code: Int, seasonNumber: Int, episodeNumber: Int): Episode!
-    search(keyword: String): [Media]
-    popular(type: String, country: String): [Media]
+    search(keyword: String, page: Int): [MediaPage]
+    popular(type: String, country: String, page: Int): [MediaPage]
     list(type: String, watchStatus: String): [Media]
+    tvSeasons(code: Int): [Season]
+    seasonEpisodes(code: Int, seasonNumber: Int): [Episode]
+    watchCount(type: String): Int
+    watchTime(type: String): Int
 }
 
 type Mutation {
     rating(code: Int!, media: String!, rating: Float!) : RatingPayload!
-    watchStatus(code: Int!, media: String!, watchStatus: String!) : WatchStatusPayload!
+    watchStatus(code: Int!, media: String!, watchStatus: String) : WatchStatusPayload!
 }
 
 type RatingPayload {
@@ -21,7 +25,13 @@ type WatchStatusPayload {
     status: Boolean!
 }
 
+union MediaPage = Movie | TV | TotalPages
+
 union Media = Movie | TV 
+
+type TotalPages {
+    totalPages: Int
+}
 
 type Movie {
     code: Int
@@ -85,6 +95,7 @@ type TV {
     watchStatus: String
     ratingUser: Float
     favorite: Boolean
+    runtime: Int
 }
 
 type Season {
