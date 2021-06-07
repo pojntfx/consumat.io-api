@@ -14,9 +14,9 @@ type Query {
 }
 
 type Mutation {
-    rating(code: Int!, media: String!, rating: Float!, seasonNumber: Int, episodeNumber: Int) : Payload!
-    favorite(code: Int!, media: String!, favorite: Boolean!, seasonNumber: Int, episodeNumber: Int) : Payload!
-    watchStatus(code: Int!, media: String!, watchStatus: String) : Payload!
+    rating(code: Int!, type: String!, rating: Int) : Payload!
+    favorite(code: Int!, type: String!, favorite: Boolean!, seasonNumber: Int, episodeNumber: Int) : Payload!
+    watchStatus(code: Int!, type: String!, watchStatus: String) : Payload!
     numberOfWatchedEpisodes(code: Int!,seasonNumber: Int!, numberOfWatchedEpisodes: Int): Payload!
 }
 
@@ -38,6 +38,7 @@ type Movie {
     overview: String
     popularity: Float
     ratingAverage: Float
+    ratingCount: Int
     releaseInitial: String
     runtime: Int
     status: String
@@ -48,7 +49,7 @@ type Movie {
     directors: [Director]
     tmdbUrl: String
     watchStatus: String
-    ratingUser: Float
+    ratingUser: Int
     favorite: Boolean
 }
 
@@ -79,6 +80,7 @@ type TV {
     overview: String
     popularity: Float
     ratingAverage: Float
+    ratingCount: Int
     releaseInitial: String
     releaseFinal: String
     status: String
@@ -91,7 +93,7 @@ type TV {
     numberOfSeasons: Int
     tmdbUrl: String
     watchStatus: String
-    ratingUser: Float
+    ratingUser: Int
     favorite: Boolean
     runtime: Int
 }
@@ -103,8 +105,6 @@ type Season {
     title: String
     overview: String
     posterPath: String
-    watchStatus: String
-    ratingUser: Float
     favorite: Boolean
     numberOfEpisodes: Int
     airDate: String
@@ -120,7 +120,5 @@ type Episode {
     airDate: String
     ratingAverage: Float 
     stillPath: String
-    watchStatus: String
-    ratingUser: Float
     favorite: Boolean
 }
